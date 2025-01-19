@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Упрощает расчёт размеров элементов */
+  /* outline: 1px solid red; */
+}
+
+html {
+  font-size: 100%; /* 1rem = 16px */
+  line-height: 1.5; /* Удобочитаемость текста */
+  scroll-behavior: smooth; /* Плавная прокрутка */
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  color: #333; /* Базовый цвет текста */
+  background-color: #fff; /* Фон страницы */
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Убирает лишние пробелы */
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /* Использует цвет родителя */
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit; /* Использует шрифт, заданный для родителя */
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+}
+
+/* Container styles */
+.container {
+  width: 100%;
+  max-width: 100%; /* По умолчанию занимает всю ширину */
+  margin: 0 auto; /* Центрирование контейнера */
+  padding: 0 1rem; /* Внутренние отступы для удобства */
+}
+
+.header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #7695fb;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-form__link:hover .search-form__logo {
+  scale: 1.09;
+  opacity: 1;
+}
+
+.search-form__logo {
+  opacity: 0.6;
+
+  transition: all 0.2s linear;
+}
+
+.search-wrapper {
+  display: flex;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  -webkit-box-shadow: 0px 0px 27px 5px rgba(0, 0, 0, 0.54);
+  box-shadow: 0px 0px 27px 5px rgba(0, 0, 0, 0.54);
+
+  transition: box-shadow 0.2s ease;
+}
+
+input {
+  padding: 10px;
+
+  background-color: #fff;
+}
+
+.search-wrapper:focus-within {
+  -webkit-box-shadow: 0px 0px 33px 13px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 33px 13px rgba(0, 0, 0, 0.8);
+}
+
+.form-button {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+
+  padding: 10px;
+
+  background-color: #d8d4d4;
+
+  transition: all 0.4s ease;
+}
+
+.form-button:hover {
+  background-color: #0055ff;
+}
+
+/* Responsive container styles (mobile-first approach) */
+
+/* Tablets (min-width: 768px) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px; /* Ограничение ширины для планшетов */
+  }
+  .search-form {
+    flex-direction: row;
+
+    gap: 20px;
+  }
+}
+
+/* Medium desktops (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 960px; /* Ширина для стандартных десктопов */
+  }
+}
+
+/* Large desktops (min-width: 1440px) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1200px; /* Расширяем контейнер для больших экранов */
+  }
+}
+
+/* Extra large screens (min-width: 1920px) */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1400px; /* Ещё больше расширяем для ультрашироких экранов */
+  }
+}
