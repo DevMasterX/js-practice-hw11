@@ -112,11 +112,15 @@ input {
 
   background-color: #d8d4d4;
 
-  transition: all 0.4s ease;
+  transition: all 0.2s ease;
 }
 
 .form-button:hover {
   background-color: #0055ff;
+}
+
+.form-button:active {
+  background-color: #00297c;
 }
 
 .hidden {
@@ -124,9 +128,41 @@ input {
 }
 
 .gallery {
+  padding-top: 10px;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.photo-card {
+  width: calc((100% - 10px) / 2);
+
+  background-color: #f0f0f0;
+  border-radius: 8px; /* Закруглённые углы */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  /* display: flex; */
+  /* flex-direction: column; */
+  font-size: clamp(7px, 0.9vw, 16px);
+}
+
+.photo-card img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+
+  padding: 8px;
+}
+
+.info-item {
+  display: inline-flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -139,8 +175,11 @@ input {
   }
   .search-form {
     flex-direction: row;
-
     gap: 20px;
+  }
+
+  .photo-card {
+    width: calc((100% - 30px) / 4);
   }
 }
 
