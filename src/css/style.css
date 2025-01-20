@@ -119,6 +119,17 @@ input {
   background-color: #0055ff;
 }
 
+.hidden {
+  display: none;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Responsive container styles (mobile-first approach) */
 
 /* Tablets (min-width: 768px) */
