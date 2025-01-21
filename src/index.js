@@ -13,6 +13,8 @@ const formSearchButton = document.querySelector('.js-form-button');
 const apiService = new ApiService();
 
 form.addEventListener('submit', onFormSubmit);
+form.elements.searchQuery.addEventListener('input', onInputChange);
+
 loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
 
 async function onFormSubmit(event) {
@@ -106,3 +108,5 @@ function disableSearchButton() {
 function enableSearchButton() {
   formSearchButton.classList.remove('disabled');
 }
+
+function onInputChange(event) {}
