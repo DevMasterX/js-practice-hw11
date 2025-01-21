@@ -12,10 +12,11 @@ const loader = document.querySelector('.loader');
 const apiService = new ApiService();
 
 form.addEventListener('submit', onFormSubmit);
+loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
 
 async function onFormSubmit(event) {
   event.preventDefault();
-  console.log('show loader');
+  gallery.innerHTML = '';
   showLoader();
 
   apiService.query = event.currentTarget.elements.searchQuery.value.trim();
@@ -49,7 +50,14 @@ async function onFormSubmit(event) {
     );
   } finally {
     hideLoader();
+    showLoadMoreBtn();
   }
+}
+
+function onLoadMoreBtnClick() {
+  console.log(' load more click');
+  apiService.incrementPage();
+  fetchPictures(apiService);
 }
 
 function showLoader() {
@@ -57,4 +65,11 @@ function showLoader() {
 }
 function hideLoader() {
   loader.classList.add('hidden');
+}
+
+function showLoadMoreBtn() {
+  loadMoreBtn.classList.remove('hidden');
+}
+function hideLoadMoreBtn() {
+  loadMoreBtn.classList.add('hidden');
 }
