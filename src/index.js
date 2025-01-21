@@ -2,10 +2,13 @@ import Notiflix from 'notiflix';
 import './js/api/apiService';
 import { fetchPictures } from './js/api/utils/fetchPictures';
 import { ApiService } from './js/api/apiService';
+import { renderGallery } from './js/api/utils/renderGallery';
 
 const form = document.querySelector('.js-form');
 const loadMoreBtn = document.querySelector('.js-load-more');
 const gallery = document.querySelector('.js-gallery');
+const loader = document.querySelector('.loader');
+console.log('🚀  loader:', loader);
 
 const apiService = new ApiService();
 
@@ -32,46 +35,12 @@ async function onFormSubmit(event) {
   const { hits } = pictures;
   console.log('🚀  hits:', hits);
 
-  renderGallery(hits);
+  renderGallery(gallery, hits);
 }
 
-function renderGallery(items) {
-  const galleryMarkup = items
-    .map(
-      ({
-        webformatURL,
-        largeImageURL,
-        tags,
-        likes,
-        views,
-        comments,
-        downloads,
-      }) => `
-  
-  <div class="photo-card">
-  <img src="${webformatURL}" alt="${tags}" loading="lazy" />
-  <div class="info">
-    <p class="info-item">
-      <b>Likes</b>
-      ${likes}
-    </p>
-    <p class="info-item">
-      <b>Views</b>
-      ${views}
-    </p>
-    <p class="info-item">
-      <b>Comments</b>
-      ${comments}
-    </p>
-    <p class="info-item">
-      <b>Downloads</b>
-      ${downloads}
-    </p>
-  </div>
-</div>
-  `
-    )
-    .join('');
-
-  gallery.insertAdjacentHTML('beforeend', galleryMarkup);
+function showLoader() {
+  loader.classList.remove('hidden');
+}
+function hideLoader() {
+  loader.classList.add('hidden');
 }
