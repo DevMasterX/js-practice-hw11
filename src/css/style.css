@@ -141,6 +141,7 @@ input {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  opacity: 0.2;
 }
 
 .photo-card {
@@ -174,7 +175,11 @@ input {
 }
 
 .loader {
-  margin: 100px auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
   width: 70px;
   padding: 8px;
   aspect-ratio: 1;
@@ -185,11 +190,15 @@ input {
   mask: var(--_m);
   -webkit-mask-composite: source-out;
   mask-composite: subtract;
-  animation: l3 1s infinite linear;
+  animation: l3 0.5s infinite linear;
 }
+
 @keyframes l3 {
-  to {
-    transform: rotate(1turn);
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
@@ -202,6 +211,8 @@ input {
   padding: 10px;
   border: 2px solid #0055ff;
   background-color: #d8d4d4;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
   transition: all 0.1s ease;
 }
 
@@ -222,6 +233,14 @@ input {
 
 .hidden {
   display: none;
+}
+
+.disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 /* Responsive container styles (mobile-first approach) */

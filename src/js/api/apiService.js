@@ -9,6 +9,7 @@ class ApiService {
     this.searchQuery = '';
     this.page = 1;
     this.PER_PAGE = 40;
+    this.TOTAL_PAGES = 0;
   }
 
   async fetchPictures() {
@@ -24,6 +25,22 @@ class ApiService {
 
     try {
       const response = await axios.get('', { params });
+
+      if (!response.data.hits.length) {
+        Notiflix.Notify.failure(
+          '❌ Sorry, there are no images matching your search query. Please try again.',
+          {
+            clickToClose: true,
+            position: 'center-center',
+          }
+        );
+        return;
+      }
+
+      const { totalHits } = response.data;
+
+      this.TOTAL_PAGES = Math.ceil(totalHits / this.PER_PAGE);
+
       return response.data;
     } catch (error) {
       console.log(error);
@@ -51,6 +68,10 @@ class ApiService {
 
   set query(newQuery) {
     this.searchQuery = newQuery;
+  }
+
+  isLastPage() {
+    return this.page === this.TOTAL_PAGES;
   }
 }
 
