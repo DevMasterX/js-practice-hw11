@@ -8,7 +8,6 @@ const form = document.querySelector('.js-form');
 const loadMoreBtn = document.querySelector('.js-load-more');
 const gallery = document.querySelector('.js-gallery');
 const loader = document.querySelector('.loader');
-console.log('🚀  loader:', loader);
 
 const apiService = new ApiService();
 
@@ -16,6 +15,8 @@ form.addEventListener('submit', onFormSubmit);
 
 async function onFormSubmit(event) {
   event.preventDefault();
+  console.log('show loader');
+  showLoader();
 
   apiService.query = event.currentTarget.elements.searchQuery.value.trim();
 
@@ -26,16 +27,29 @@ async function onFormSubmit(event) {
       position: 'center-center',
       //   fontSize: '16px',
     });
+    hideLoader();
+
     return;
   }
   form.reset();
 
-  const pictures = await fetchPictures(apiService);
+  try {
+    const pictures = await fetchPictures(apiService);
+    const { hits } = pictures;
 
-  const { hits } = pictures;
-  console.log('🚀  hits:', hits);
-
-  renderGallery(gallery, hits);
+    renderGallery(gallery, hits);
+  } catch (error) {
+    console.error('Something went wrong in onFormSubmit:', error);
+    Notiflix.Notify.failure(
+      '❌ Something went wrong in onFormSubmit. Please try again.',
+      {
+        clickToClose: true,
+        position: 'center-center',
+      }
+    );
+  } finally {
+    hideLoader();
+  }
 }
 
 function showLoader() {
