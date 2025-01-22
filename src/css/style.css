@@ -44,6 +44,9 @@ select {
   padding: 0;
   outline: none;
 }
+button {
+  user-select: none;
+}
 
 /* Container styles */
 .container {
@@ -54,9 +57,17 @@ select {
 }
 
 .header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: #7695fb;
+}
+main {
+  /* height: 100vh; */
+  padding-top: 80px;
 }
 
 .search-form {
@@ -133,6 +144,7 @@ input {
 }
 
 .gallery {
+  /* height: 100%; */
   padding-top: 10px;
   padding-bottom: 20px;
   display: flex;
