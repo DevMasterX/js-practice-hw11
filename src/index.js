@@ -1,3 +1,5 @@
+import SimpleLightbox from 'simplelightbox';
+
 import Notiflix from 'notiflix';
 import './js/api/apiService';
 // import { fetchPictures } from './js/api/utils/fetchPictures';
@@ -110,7 +112,7 @@ function enableSearchButton() {
 }
 
 function onInputChange(event) {
-  if (event.currentTarget.value) {
+  if (event.target.value) {
     enableSearchButton();
   } else {
     disableSearchButton();

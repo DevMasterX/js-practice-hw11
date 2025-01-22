@@ -1,20 +1,19 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Упрощает расчёт размеров элементов */
-  /* outline: 1px solid red; */
+  box-sizing: border-box;
 }
 
 html {
-  font-size: 100%; /* 1rem = 16px */
-  line-height: 1.5; /* Удобочитаемость текста */
-  scroll-behavior: smooth; /* Плавная прокрутка */
+  font-size: 100%;
+  line-height: 1.5;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
-  color: #333; /* Базовый цвет текста */
+  color: #333;
   background-color: #f3f6fd;
 }
 
@@ -22,7 +21,7 @@ img,
 video {
   max-width: 100%;
   height: auto;
-  display: block; /* Убирает лишние пробелы */
+  display: block;
 }
 
 ul,

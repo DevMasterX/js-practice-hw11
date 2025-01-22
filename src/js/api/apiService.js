@@ -36,11 +36,11 @@ class ApiService {
         );
         return;
       }
+      // const { totalHits } = response.data;
+      // this.TOTAL_PAGES = Math.ceil(totalHits / this.PER_PAGE);
+      // this.TOTAL_HITS = totalHits;
 
-      const { totalHits } = response.data;
-
-      this.TOTAL_PAGES = Math.ceil(totalHits / this.PER_PAGE);
-
+      this.TOTAL_PAGES = Math.ceil(response.data.totalHits / this.PER_PAGE);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -71,7 +71,7 @@ class ApiService {
   }
 
   isLastPage() {
-    return this.page === this.TOTAL_PAGES;
+    return this.page >= this.TOTAL_PAGES;
   }
 }
 
