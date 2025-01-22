@@ -109,4 +109,10 @@ function enableSearchButton() {
   formSearchButton.classList.remove('disabled');
 }
 
-function onInputChange(event) {}
+function onInputChange(event) {
+  if (event.currentTarget.value) {
+    enableSearchButton();
+  } else {
+    disableSearchButton();
+  }
+}
