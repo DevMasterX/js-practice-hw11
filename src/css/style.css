@@ -242,6 +242,10 @@ input {
   opacity: 0.4;
 }
 
+.sl-overlay {
+  background: black !important;
+}
+
 /* Responsive container styles (mobile-first approach) */
 
 /* Tablets (min-width: 768px) */

@@ -1,4 +1,4 @@
-import SimpleLightbox from 'simplelightbox';
+import { lightbox } from './js/api/utils/lightbox';
 
 import Notiflix from 'notiflix';
 import './js/api/apiService';
@@ -8,7 +8,7 @@ import { renderGallery } from './js/api/utils/renderGallery';
 
 const form = document.querySelector('.js-form');
 const loadMoreBtn = document.querySelector('.js-load-more');
-const gallery = document.querySelector('.js-gallery');
+const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
 const formSearchButton = document.querySelector('.js-form-button');
 
@@ -44,6 +44,7 @@ async function onFormSubmit(event) {
     const pictures = await apiService.fetchPictures();
 
     renderGallery(gallery, pictures.hits);
+    lightbox.refresh();
     disableSearchButton();
 
     if (apiService.isLastPage()) {
@@ -73,6 +74,7 @@ async function onLoadMoreBtnClick() {
     const pictures = await apiService.fetchPictures();
 
     renderGallery(gallery, pictures.hits);
+    lightbox.refresh();
 
     if (apiService.isLastPage()) {
       hideLoadMoreBtn();
@@ -118,3 +120,5 @@ function onInputChange(event) {
     disableSearchButton();
   }
 }
+
+const lightbox = new SimpleLightbox('.gallery a');
