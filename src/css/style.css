@@ -44,6 +44,11 @@ select {
   padding: 0;
   outline: none;
 }
+
+input {
+  border-radius: 0;
+}
+
 button {
   user-select: none;
 }
@@ -61,12 +66,13 @@ button {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 999;
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: #7695fb;
 }
 main {
-  padding-top: 100px;
+  padding-top: 125px;
 }
 
 .search-form {
@@ -121,11 +127,8 @@ input {
   display: flex;
   gap: 5px;
   align-items: center;
-
   padding: 10px;
-
   background-color: #d8d4d4;
-
   transition: all 0.1s ease;
 }
 
@@ -156,19 +159,21 @@ input {
 
 .photo-card {
   width: calc((100% - 10px) / 2);
-
   background-color: #f0f0f0;
   border-radius: 8px; /* Закруглённые углы */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  /* display: flex; */
-  /* flex-direction: column; */
   font-size: clamp(7px, 0.9vw, 16px);
 }
 
 .photo-card img {
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  transition: transform 0.2s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.08);
 }
 
 .info {
@@ -205,10 +210,10 @@ input {
 
 @keyframes l3 {
   0% {
-    transform: rotate(0);
+    transform: translate(-50%, -50%) rotate(0);
   }
   100% {
-    transform: rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
@@ -264,6 +269,11 @@ input {
   .container {
     max-width: 720px; /* Ограничение ширины для планшетов */
   }
+
+  main {
+    padding-top: 75px;
+  }
+
   .search-form {
     flex-direction: row;
     gap: 20px;

@@ -61,9 +61,6 @@ class ApiService {
   resetPage() {
     this.page = 1;
   }
-  // showCurrentPage() {
-  //   return this.page;
-  // }
 
   get query() {
     return this.searchQuery;
