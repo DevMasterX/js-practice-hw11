@@ -5,7 +5,7 @@ const textContainer = document.querySelector('.animated-text');
 
 const typingSpeed = 100;
 const erasingSpeed = 50;
-const pauseBeforeErasing = 1000;
+const pauseBeforeErasing = 2000;
 
 async function typeEffect() {
   for (let i = 0; i <= animatedText.length; i += 1) {
