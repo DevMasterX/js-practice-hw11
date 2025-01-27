@@ -52,13 +52,6 @@ async function onFormSubmit(event) {
     }
   } catch (error) {
     console.error('Something went wrong in onFormSubmit:', error);
-    // Notiflix.Notify.failure(
-    //   '❌ Something went wrong in onFormSubmit. Please try again.',
-    //   {
-    //     clickToClose: true,
-    //     position: 'center-center',
-    //   }
-    // );
   } finally {
     hideLoader();
   }
