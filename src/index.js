@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 import './js/api/apiService';
 import { ApiService } from './js/api/apiService';
 import { renderGallery } from './js/api/utils/renderGallery';
+import { typeEffect } from './js/api/utils/typeEffect';
 
 const form = document.querySelector('.js-form');
 const gallery = document.querySelector('.gallery');
@@ -10,6 +11,8 @@ const loader = document.querySelector('.loader');
 const formSearchButton = document.querySelector('.js-form-button');
 const target = document.querySelector('.observer-target');
 const apiService = new ApiService();
+
+typeEffect();
 
 form.addEventListener('submit', onFormSubmit);
 form.elements.searchQuery.addEventListener('input', onInputChange);
