@@ -233,17 +233,22 @@ input {
   background: black !important;
 }
 
+.animated-text-wrap {
+  display: flex;
+  justify-content: center;
+}
+
 .animated-text {
   text-align: center;
   color: rgb(63, 61, 61);
-  display: inline-block;
+  display: inline-flex;
   border-right: 2px solid rgb(63, 61, 61);
-  animation: cursor 1s steps(2) infinite;
+  animation: cursor 1s infinite;
 }
 
 @keyframes cursor {
   50% {
-    border: none;
+    border-color: transparent;
   }
 }
 
