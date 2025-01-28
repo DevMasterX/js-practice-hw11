@@ -17,7 +17,6 @@ const observer = new IntersectionObserver(onLoad, {
 async function onLoad(entries, observer) {
   for (const entry of entries) {
     if (entry.isIntersecting) {
-      console.log('Increment page');
       apiService.incrementPage();
 
       showLoader();
