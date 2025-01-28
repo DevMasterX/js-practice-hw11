@@ -236,7 +236,7 @@ input {
 .animated-text-wrap {
   display: flex;
   justify-content: center;
-  padding: 5px;
+  padding: 15px;
 }
 
 .animated-text {
