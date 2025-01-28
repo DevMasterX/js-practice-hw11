@@ -14,10 +14,6 @@ const pauseBeforeErasing = 2000;
 let typingTimeoutId;
 let isTypingEnabled = false;
 
-// if (isTypingEnabled) {
-//   typeEffect();
-// }
-
 async function typeEffect() {
   for (let i = 0; i <= animatedText.length; i += 1) {
     if (!isTypingEnabled) {

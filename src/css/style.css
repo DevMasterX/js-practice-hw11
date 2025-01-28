@@ -240,9 +240,10 @@ input {
 }
 
 .animated-text {
+  display: inline-flex;
   text-align: center;
   color: rgb(63, 61, 61);
-  display: inline-flex;
+  font-weight: 600;
   border-right: 2px solid rgb(63, 61, 61);
   animation: cursor 1s infinite;
 }
